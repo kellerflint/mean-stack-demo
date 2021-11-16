@@ -1,12 +1,16 @@
 <h2>Create Component</h2>
 <mat-card>
-    <mat-form-field>
-        <input matInput type="text" [(ngModel)]="enteredTitle" />
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-        <textarea rows="6" matInput [(ngModel)]="enteredContent"></textarea>
-    </mat-form-field>
-    <br />
-    <button mat-raised-button color="primary" (click)="onAddPost()">Save post</button>
+    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <input required matInput type="text" ngModel name="title" #title="ngModel" />
+        </mat-form-field>
+        <mat-error *ngIf="title.invalid && title.touched">Required</mat-error>
+        <br />
+        <mat-form-field>
+            <textarea required rows="6" matInput ngModel name="content" #content="ngModel"></textarea>
+        </mat-form-field>
+        <mat-error *ngIf="content.invalid && content.touched">Required</mat-error>
+        <br />
+        <button type="submit" mat-raised-button color="primary">Save post</button>
+    </form>
 </mat-card>

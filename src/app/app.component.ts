@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from './posts/post.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'mean-course';
 
-  posts: any = [
+  posts: Post[] = [
     { title: "title 1", content: "Content 1" },
     { title: "title 2", content: "Content 2" },
     { title: "title 3", content: "Content 3" }
